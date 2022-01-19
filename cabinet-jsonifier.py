@@ -31,3 +31,5 @@ with open("cabinet-info.txt", "r") as file:
 		json += "]}"
 
 json += "]"
+with open("games.json", "w") as jsonFile:
+	jsonFile.write(json)
