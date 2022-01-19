@@ -6,8 +6,6 @@ json = "["
 
 with open("cabinet-info.txt", "r") as file:
 	for line in file:
-		if line != file[0]:
-			json += ","
 		json += "{\"id\":\""
 
 		paren = line.find("(")
@@ -28,8 +26,10 @@ with open("cabinet-info.txt", "r") as file:
 			for p in pubList:
 				json += (",\"" + p + "\"")
 		
-		json += "]}"
+		json += "]},"
 
+if json[len(json)] == ",":
+	json = json[0, (len(json) - 1)]
 json += "]"
 with open("games.json", "w") as jsonFile:
 	jsonFile.write(json)
