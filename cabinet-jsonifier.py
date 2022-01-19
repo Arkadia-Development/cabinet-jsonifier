@@ -20,7 +20,7 @@ with open("cabinet-info.txt", "r") as file:
 
 		closeParen = line.find(")")
 		if closeParen - paren > 1:
-			pub = line[paren:(closeParen + 1)]
+			pub = line[(paren + 1):closeParen]
 			pubList = pub.split()
 			for p in pubList:
 				json += (",\"" + p + "\"")
