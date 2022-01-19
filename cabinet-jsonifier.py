@@ -23,7 +23,7 @@ with open("cabinet-info.txt", "r") as file:
 			pub = line[(paren + 1):closeParen]
 			pubList = pub.split()
 			for p in pubList:
-				json += (",\"" + p + "\"")
+				json += (",\"" + p.lower() + "\"")
 		
 		json += "]},"
 
