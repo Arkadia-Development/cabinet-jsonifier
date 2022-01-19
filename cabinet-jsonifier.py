@@ -10,7 +10,8 @@ with open("cabinet-info.txt", "r") as file:
 
 		paren = line.find("(")
 		title = line[0:paren]
-		title = filter(title.isalnum, string.printable).lower()
+		title = filter(title.isalnum, string.printable)
+		title = title.lower()
 		json += (title + "\",\"isWorking\":")
 
 		if line[len(line) - 1] == "x":
