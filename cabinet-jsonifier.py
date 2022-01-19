@@ -1,5 +1,3 @@
-import string
-
 lines = []
 
 json = "["
@@ -10,7 +8,7 @@ with open("cabinet-info.txt", "r") as file:
 
 		paren = line.find("(")
 		title = line[0:paren]
-		title = filter(title.isalnum, string.printable)
+		title = "".join(c for c in title if c.isalnum())
 		title = title.lower()
 		json += (title + "\",\"isWorking\":")
 
@@ -29,7 +27,7 @@ with open("cabinet-info.txt", "r") as file:
 		
 		json += "]},"
 
-if json[len(json)] == ",":
+if json[len(json) - 1] == ",":
 	json = json[0, (len(json) - 1)]
 json += "]"
 with open("games.json", "w") as jsonFile:
