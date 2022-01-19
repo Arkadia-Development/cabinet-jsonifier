@@ -28,7 +28,7 @@ with open("cabinet-info.txt", "r") as file:
 		json += "]},"
 
 if json[len(json) - 1] == ",":
-	json = json[0, (len(json) - 1)]
+	json = json[:-1]
 json += "]"
 with open("games.json", "w") as jsonFile:
 	jsonFile.write(json)
