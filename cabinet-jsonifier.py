@@ -19,6 +19,13 @@ with open("cabinet-info.txt", "r") as file:
 				json += "true"
 			json += (",\"searchTerms\":[\"" + title + "\"")
 
+			spaced = line[0:paren]
+			spaced = "".join(c for c in spaced if c.isalnum() or c == " ")
+			spaced = spaced.lower()
+			wordList = spaced.split()
+			for word in wordList:
+				json += (",\"" + word + "\"")
+
 			closeParen = line.find(")")
 			if closeParen - paren > 1:
 				pub = line[(paren + 1):closeParen]
