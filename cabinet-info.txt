@@ -228,7 +228,7 @@ Astro blaster (Sega)
 Time pilot (Konami)
 Vanguard (centuri) x
 Pleiades (centuri)
-Phoneix (centuri)
+Phoenix (centuri)
 Space invaders (bally midway)
 Space ace (starcom) X
 Dragons lair (magicom)
