@@ -13,7 +13,7 @@ with open("cabinet-info.txt", "r") as file:
 			title = title.lower()
 			json += (title + "\",\"isWorking\":")
 
-			if line[len(line) - 1] == "x":
+			if line[-2] == "x":
 				json += "false"
 			else:
 				json += "true"
