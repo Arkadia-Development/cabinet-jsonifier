@@ -4,14 +4,15 @@ json = "["
 
 with open("cabinet-info.txt", "r") as file:
 	for line in file:
-		if line[len(line) - 1] != "?":
+		if line[-1] != "?":
 			json += "{\"id\":\""
 
-			paren = line.find("(")
+			paren = line.find(" (")
 			title = line[0:paren]
+			fullyQualifiedTitle = title
 			title = "".join(c for c in title if c.isalnum())
 			title = title.lower()
-			json += (title + "\",\"isWorking\":")
+			json += (title + "\",\"fullTitle\":\"" + fullyQualifiedTitle + "\",\"isWorking\":")
 
 			if line[-2] == "x":
 				json += "false"
@@ -28,7 +29,7 @@ with open("cabinet-info.txt", "r") as file:
 
 			closeParen = line.find(")")
 			if closeParen - paren > 1:
-				pub = line[(paren + 1):closeParen]
+				pub = line[(paren + 2):closeParen]
 				pubList = pub.split()
 				for p in pubList:
 					json += (",\"" + p.lower() + "\"")
