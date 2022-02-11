@@ -4,7 +4,7 @@ json = "["
 
 with open("cabinet-info.txt", "r") as file:
 	for line in file:
-		if line[-1] != "?":
+		if line[-2] != "?":
 			json += "{\"id\":\""
 
 			paren = line.find(" (")
